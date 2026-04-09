@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>🎉 Premio GRISSISTORE</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #06267e, #33ead2);
+    color: white;
+    text-align: center;
+    padding: 80px;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    color: #facc15;
+}
+
+
+.cupon {
+    font-size: 28px;
+    background: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 15px 0;
+    letter-spacing: 3px;
+}
+
+button {
+    padding: 12px 20px;
+    background: #0004df;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <img src="logo.png" width="120" style="border-radius:50%">
+
+    <h1>🎊 ¡FELICIDADES!</h1>
+
+    <p>Ganaste un:</p>
+    <h2>💉 TATUAJE o 💇 CORTE GRATIS</h2>
+
+    <p>Tu código único es:</p>
+    <div class="cupon" id="cupon"></div>
+
+    <h3>Valido UNICAMENTE del 10 al 12 ABRIL 2026 👀</h3>
+
+    <button onclick="irMapa()">📍 Ir a GRISSISTORE</button>
+</div>
+
+<script>
+// Generar código único
+function generarCupon() {
+    return 'GRISSI-' + Math.random().toString(36).substring(2,8).toUpperCase();
+}
+
+// Verificar si ya tiene uno
+let cuponGuardado = localStorage.getItem("cupon");
+
+if (!cuponGuardado) {
+    cuponGuardado = generarCupon();
+    localStorage.setItem("cupon", cuponGuardado);
+}
+
+document.getElementById("cupon").innerText = cuponGuardado;
+
+function irMapa(){
+    window.open("https://maps.app.goo.gl/urE5A26yKLkdPqXi9", "_blank");
+}
+</script>
+
+</body>
+</html>
